@@ -1,0 +1,14 @@
+<div style="text-align:center">
+    <h2>
+        {{mode}} Social Media Post
+    </h2>
+  <form (ngSubmit)="addPost()" #myForm= 'ngForm'>
+      <mat-form-field class="postarea">
+    <textarea matInput placeholder ="What's on your mind ?" autofocus id="txtpost" [(ngModel)]="txtPost" name="txtpost">
+   </textarea>
+      </mat-form-field>
+  <p>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </p>
+  </form>
+</div>
