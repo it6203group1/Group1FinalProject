@@ -18,6 +18,8 @@ import { NewTextpostFormComponent } from './new-textpost-form/new-textpost-form.
 import { ListTextpostComponent } from './list-textpost/list-textpost.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TextpostService } from './textpost.service';
+import { UserFormComponent } from './Users/Components/user-form/user-form.component';
+import { UserListComponent } from './Users/Components/user-list/user-list.component';
 
 const appRoutes: Routes = [ {
   path: '',                     //default component to display
@@ -28,22 +30,26 @@ const appRoutes: Routes = [ {
  },       {
   path: 'editAccount/:_id',         //when accounts edited 
   component: NewAccountFormComponent
-},        {
+  },        {
    path: 'listAccounts',       //when accounts listed
    component: ListAccountsComponent
- },       {
-  path: 'addPost',         
-  component: NewTextpostFormComponent
-},        {
- path: 'editPost/:_id',         
- component: NewTextpostFormComponent
-},        {
-  path: 'listPost',       
-  component: ListTextpostComponent
-},        {
-  path: '**',                 //when path cannot be found
-  component: NotFoundComponent
-},
+  },       {
+    path: 'addPost',         
+    component: NewTextpostFormComponent
+  },        {
+    path: 'editPost/:_id',         
+    component: NewTextpostFormComponent
+  },        {
+    path: 'listPost',       
+    component: ListTextpostComponent
+  },        {
+    path: '**',                 //when path cannot be found
+    component: NotFoundComponent
+  },
+  { 
+    path: 'create', 
+    component: UserFormComponent 
+  },
 ];
 
 
@@ -56,7 +62,9 @@ const appRoutes: Routes = [ {
     ListAccountsComponent,
     NewTextpostFormComponent,
     ListTextpostComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserFormComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

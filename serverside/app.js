@@ -147,6 +147,41 @@ app.put('/textpage/:id', (req, res, next) => {
   
 }); 
 
+// Jose's API Endpoints
+app.get('/api/v1/users', function(req, res) {
+  User.find({}, function (err, users) {
+    if (err)
+      sendError(err, res);
+    response.data = users;
+    res.json(response);
+  });
+});
+
+app.post('/api/v1/user', function(req, res) {
+  let user = new User({
+    'name': req.body.name,
+    'email': req.body.email
+  });
+
+  user.save((err) => {
+    if (err)
+      sendError(err, res);
+    response.data = 'User created';
+    res.json(response);
+  });
+});
+
+app.delete('/api/v1/user/:userid', function(req, res) {
+  let userId = req.params.userid;
+
+  User.findByIdAndRemove(userId, function (err, user) {
+    if(err)
+      sendError(err, res);
+    response.data = 'User deleted'
+    res.json(response);
+  });
+});
+
 
 //to use this middleware in other parts of the application
 module.exports=app;
