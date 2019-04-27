@@ -22,6 +22,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { DataService } from './data.service';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angular-6-social-login";
+import { HttpModule } from '@angular/http';
 
 
 export function getAuthServiceConfigs() {
@@ -37,14 +38,14 @@ export function getAuthServiceConfigs() {
   }
 
 const appRoutes: Routes = [ {
-  path: '',                     //default component to display
+   path: '',                     //default component to display
    component: ListAccountsComponent
  },       {
    path: 'addAccount',         //Matt
    component: NewAccountFormComponent
  },       {
-  path: 'editAccount/:_id',         //Matt 
-  component: NewAccountFormComponent
+   path: 'editAccount/:_id',         //Matt 
+   component: NewAccountFormComponent
   },        {
    path: 'listAccounts',       //Matt
    component: ListAccountsComponent
@@ -101,12 +102,12 @@ const appRoutes: Routes = [ {
     RouterModule.forRoot(appRoutes),
     MatCardModule,
     SocialLoginModule,
+    HttpModule,
   ],
   providers: [AccountService, TextpostService, DataService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
-
     }
   ],
   bootstrap: [AppComponent]

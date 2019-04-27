@@ -22,8 +22,7 @@ export class AppComponent implements OnInit {
       (userData) => {
         console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData
-        // ...
-            
+        // ...   
       }
     );
   }

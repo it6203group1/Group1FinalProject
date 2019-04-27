@@ -19,8 +19,8 @@ mongoose.connect('mongodb+srv://matt_ray:mattray@group1db-n8tmj.mongodb.net/Grou
     console.error(error);
   });
 
-  
-// Matt
+
+// Matt's Code
 app.use((req, res, next) => {
    console.log('This line is always called');
    res.setHeader('Access-Control-Allow-Origin', '*'); //can connect from any host
@@ -95,7 +95,7 @@ app.put('/accounts/:id', (req, res, next) => {
 });  
 
 
-//Chinmaya
+//Chinmaya's Code
 app.get('/textpage', (req, res, next) => {
 Tpst.find() 
 .then(data => res.status(200).json(data))
@@ -182,7 +182,6 @@ app.delete('/api/v1/user/:userid', function(req, res) {
 });
 
 
-//to use this middleware in other parts of the application
 module.exports=app;
 
 
