@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ headertitle }}!
+  </h1>
+</div>
+<app-navigation-menu></app-navigation-menu>
+<router-outlet></router-outlet>
+<!--div>
+<div>
+  <ul *ngFor ="let account of accounts let i = index">
+    <li> {{account.id}}: {{account.socialPlatform}} {{account.userName}} {{account.password}} (index {{i}})
+      <button mat-button color="warn" (click)="onDelete(account._id)">DELETE</button>
+    </li>
+  </ul>
+</div>
+</div-->
+
+
+<br>
+<ul>
+  <h2>Social Media Links:</h2>
+  <li>
+    <button (click)="socialSignIn('facebook')">Facebook Sign In</button>
+  </li>
+  <li>
+    <h3><a target="_blank" rel="noopener" href="https://www.facebook.com">Facebook</a></h3>
+  </li>
+  <li>
+    <h3><a target="_blank" rel="noopener" href="https://www.twitter.com">Twitter</a></h3>
+  </li>
+  <li>
+    <h3><a target="_blank" rel="noopener" href="https://www.instagram.com">Instagram</a></h3>
+  </li>
+</ul>

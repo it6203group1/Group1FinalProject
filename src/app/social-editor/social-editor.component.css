@@ -1,0 +1,22 @@
+h3 {
+   color:black;
+   font-size: 30px;
+   font-weight: bold;
+   text-decoration: underline; 
+}
+label {
+    font-size: 16px;
+    text-decoration: underline;
+}
+button {
+    font-weight: bold;
+}
+form {
+    border: 2px solid black;
+    border-radius: 4px;
+}
+input[type=text] {
+    padding: 8px;
+    margin: 6px;
+    box-sizing: border-box;
+}
