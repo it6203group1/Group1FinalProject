@@ -1,9 +1,0 @@
-<div style="text-align:center">
-  <h4>Account List</h4>
-    <ul *ngFor ="let account of accounts let i = index">
-      <li> {{account._id}}: {{account.socialPlatform}} {{account.userName}} {{account.password}} (index {{i}})
-        <button mat-button color="warn" (click)="onDelete(account._id)">DELETE</button>
-        <button mat-button color="accent" [routerLink]="['/editAccount', account._id]">UPDATE</button>
-      </li>
-    </ul>
-  </div>
