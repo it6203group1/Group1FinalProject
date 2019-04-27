@@ -19,7 +19,8 @@ mongoose.connect('mongodb+srv://matt_ray:mattray@group1db-n8tmj.mongodb.net/Grou
     console.error(error);
   });
 
-// use the following code on any request that matches the specified mount path
+  
+// Matt
 app.use((req, res, next) => {
    console.log('This line is always called');
    res.setHeader('Access-Control-Allow-Origin', '*'); //can connect from any host
@@ -94,10 +95,7 @@ app.put('/accounts/:id', (req, res, next) => {
 });  
 
 
-
-
-
-
+//Chinmaya
 app.get('/textpage', (req, res, next) => {
 Tpst.find() 
 .then(data => res.status(200).json(data))
@@ -146,6 +144,7 @@ app.put('/textpage/:id', (req, res, next) => {
  }
   
 }); 
+
 
 // Jose's API Endpoints
 app.get('/api/v1/users', function(req, res) {

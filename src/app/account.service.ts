@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Router} from '@angular/router';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -8,7 +9,7 @@ const httpOptions = {
 @Injectable()
 export class AccountService {
  
-    constructor(private http:HttpClient) {}
+    constructor(private http:HttpClient, private router:Router) {}
  
     // Uses http.get() to load data 
 getAccounts() {
@@ -20,7 +21,8 @@ addAccounts(socialPlatform: string, userName: string, password: string) {
     this.http.post('http://localhost:8000/accounts',{ socialPlatform, userName, password })
         .subscribe((responseData) => {
             console.log(responseData);
-        }); 
+        });
+        this.router.navigate(['/listAccounts']);
     }
 
 deleteAccount(accountId: string) {
@@ -38,7 +40,7 @@ updateAccount(accountId: string, socialPlatform: string, userName: string, passw
         .subscribe(() => {
             console.log('Updated: ' + accountId);
         });
-        location.reload();
+        this.router.navigate(['/listAccounts']);
     }
 
 }

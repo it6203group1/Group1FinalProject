@@ -40,31 +40,31 @@ const appRoutes: Routes = [ {
   path: '',                     //default component to display
    component: ListAccountsComponent
  },       {
-   path: 'addAccount',         //when accounts added 
+   path: 'addAccount',         //Matt
    component: NewAccountFormComponent
  },       {
-  path: 'editAccount/:_id',         //when accounts edited 
+  path: 'editAccount/:_id',         //Matt 
   component: NewAccountFormComponent
   },        {
-   path: 'listAccounts',       //when accounts listed
+   path: 'listAccounts',       //Matt
    component: ListAccountsComponent
   },       {
-    path: 'addPost',         
+    path: 'addPost',         //Chinmaya
     component: NewTextpostFormComponent
   },        {
-    path: 'editPost/:_id',         
+    path: 'editPost/:_id',      //Chinmaya   
     component: NewTextpostFormComponent
   },        {
-    path: 'listPost',       
+    path: 'listPost',       //Chinmaya
     component: ListTextpostComponent
   },        { 
-    path: 'create', 
+    path: 'create',   //Jose
     component: UserFormComponent 
   },        {
-    path: 'list',
+    path: 'list',  //Jose
     component: UserListComponent
   },        {
-    path: 'editPicture/:_id',
+    path: 'editPicture/:_id',  //Jose
     component: UserFormComponent
 },          {
     path: '**',                 //when path cannot be found
