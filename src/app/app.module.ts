@@ -9,7 +9,7 @@ import { AccountService } from './account.service';
 import { Routes, RouterModule } from '@angular/router';
 import { NewAccountFormComponent } from './new-account-form/new-account-form.component';
 import { MatFormFieldModule, MatButtonModule, MatMenuModule, MatIconModule } from '@angular/material';
-import { MatInputModule } from '@angular/material'; 
+import { MatInputModule, MatCardModule } from '@angular/material'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
@@ -18,8 +18,23 @@ import { NewTextpostFormComponent } from './new-textpost-form/new-textpost-form.
 import { ListTextpostComponent } from './list-textpost/list-textpost.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TextpostService } from './textpost.service';
-import { UserFormComponent } from './Users/Components/user-form/user-form.component';
-import { UserListComponent } from './Users/Components/user-list/user-list.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { DataService } from './data.service';
+import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angular-6-social-login";
+
+
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("687487458374632")
+        }
+      ]
+  );
+  return config;
+  }
 
 const appRoutes: Routes = [ {
   path: '',                     //default component to display
@@ -42,13 +57,12 @@ const appRoutes: Routes = [ {
   },        {
     path: 'listPost',       
     component: ListTextpostComponent
+  },        { 
+    path: 'create', 
+    component: UserFormComponent 
   },        {
     path: '**',                 //when path cannot be found
     component: NotFoundComponent
-  },
-  { 
-    path: 'create', 
-    component: UserFormComponent 
   },
 ];
 
@@ -64,7 +78,7 @@ const appRoutes: Routes = [ {
     ListTextpostComponent,
     NotFoundComponent,
     UserFormComponent,
-    UserListComponent
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,8 +93,16 @@ const appRoutes: Routes = [ {
     MatMenuModule,
     MatIconModule,
     RouterModule.forRoot(appRoutes),
+    MatCardModule,
+    SocialLoginModule,
   ],
-  providers: [AccountService, TextpostService],
+  providers: [AccountService, TextpostService, DataService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
