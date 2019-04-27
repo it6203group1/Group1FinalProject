@@ -61,6 +61,12 @@ const appRoutes: Routes = [ {
     path: 'create', 
     component: UserFormComponent 
   },        {
+    path: 'list',
+    component: UserListComponent
+  },        {
+    path: 'editPicture/:_id',
+    component: UserFormComponent
+},          {
     path: '**',                 //when path cannot be found
     component: NotFoundComponent
   },
