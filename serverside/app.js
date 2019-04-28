@@ -7,18 +7,18 @@ const bodyParser = require('body-parser');
 const app = express();
 
 
-mongoose.connect('mongodb://localhost:27017/socialDB', { useNewUrlParser: true })
-  .then(() => { console.log("connected"); })
-  .catch(() => { console.log("error connecting"); });
+//mongoose.connect('mongodb://localhost:27017/socialDB', { useNewUrlParser: true })
+//  .then(() => { console.log("connected"); })
+//  .catch(() => { console.log("error connecting"); });
 
-// mongoose.connect('mongodb+srv://matt_ray:mattray@group1db-n8tmj.mongodb.net/Group1db?retryWrites=true')
-//   .then(() => {
-//     console.log('Successfully connected to MongoDB Atlas!');
-//   })
-//   .catch((error) => {
-//     console.log('Unable to connect to MongoDB Atlas!');
-//     console.error(error);
-//   });
+mongoose.connect('mongodb+srv://matt_ray:mattray@group1db-n8tmj.mongodb.net/Group1db?retryWrites=true')
+   .then(() => {
+     console.log('Successfully connected to MongoDB Atlas!');
+   })
+   .catch((error) => {
+     console.log('Unable to connect to MongoDB Atlas!');
+     console.error(error);
+   });
 
 // use the following code on any request that matches the specified mount path
 app.use((req, res, next) => {
