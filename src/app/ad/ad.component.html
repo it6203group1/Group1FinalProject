@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12" id="showrecord">
+            <div class="row">
+              <div class="input-field col s12">
+                <h1 style="font-size:22px; text-align:center; margin:5px;">Advertisement List</h1>
+              </div>
+            </div>
+
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>Ad Title</th>
+                  <th>Description</th>
+                  <th>Location</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tr *ngFor="let ad of adService.ads">
+                <td>{{ad.name}}</td>
+                <td>{{ad.description}}</td>
+                <td>{{ad.location}}</td>
+                <td>{{ad.price}}</td>
+                <td>
+                  <a class="action-btn" (click)="onEdit(ad)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" (click)="onDelete(ad._id,adForm)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

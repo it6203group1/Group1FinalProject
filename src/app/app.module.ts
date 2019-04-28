@@ -4,12 +4,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialEditorComponent } from './social-editor/social-editor.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { AccountService } from './account.service';
 import { Routes, RouterModule } from '@angular/router';
 import { NewAccountFormComponent } from './new-account-form/new-account-form.component';
 import { MatFormFieldModule, MatButtonModule, MatMenuModule, MatIconModule } from '@angular/material';
-import { MatInputModule, MatCardModule } from '@angular/material'; 
+import { MatInputModule, MatCardModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
@@ -22,51 +22,59 @@ import { UserFormComponent } from './pictures/Components/user-form/user-form.com
 import { UserListComponent } from './pictures/Components/user-list/user-list.component';
 import { DataService } from './pictures/Services/data.service';
 import { HttpModule } from '@angular/http';
-import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider} from "angular-6-social-login";
+import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
+import { AdComponent } from './ad/ad.component';
+import { ShowViewComponent } from './show-view/show-view.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
-      [
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider("687487458374632")
-        }
-      ]
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("687487458374632")
+      }
+    ]
   );
   return config;
 }
 
-const appRoutes: Routes = [ {
+const appRoutes: Routes = [{
   path: '',                     //default component to display
-   component: ListAccountsComponent
- },       {
-   path: 'addAccount',         //Matt
-   component: NewAccountFormComponent
- },       {
+  component: ListAccountsComponent
+}, {
+  path: 'addAccount',         //Matt
+  component: NewAccountFormComponent
+}, {
   path: 'editAccount/:_id',         //Matt 
   component: NewAccountFormComponent
-  },        {
-   path: 'listAccounts',       //Matt
-   component: ListAccountsComponent
-  },       {
-    path: 'addPost',         //Chinmaya
-    component: NewTextpostFormComponent
-  },        {
-    path: 'editPost/:_id',     //Chinmaya    
-    component: NewTextpostFormComponent
-  },        {
-    path: 'listPost',      //Chinmaya 
-    component: ListTextpostComponent
-  },        { 
-    path: 'create',  //Jose
-    component: UserFormComponent 
-  },        {
-    path: 'list',  //Jose
-    component: UserListComponent
-  },        {
-    path: '**',                 //when path cannot be found
-    component: NotFoundComponent
-  },
+}, {
+  path: 'listAccounts',       //Matt
+  component: ListAccountsComponent
+}, {
+  path: 'addPost',         //Chinmaya
+  component: NewTextpostFormComponent
+}, {
+  path: 'editPost/:_id',     //Chinmaya    
+  component: NewTextpostFormComponent
+}, {
+  path: 'listPost',      //Chinmaya 
+  component: ListTextpostComponent
+}, {
+  path: 'create',  //Jose
+  component: UserFormComponent
+}, {
+  path: 'list',  //Jose
+  component: UserListComponent
+}, {
+  path: 'showlisting',  //Marry
+  component: AdComponent
+}, {
+  path: 'view-page',  //Marry
+  component: ShowViewComponent
+}, {
+  path: '**',                 //when path cannot be found
+  component: NotFoundComponent
+},
 ];
 
 
@@ -81,7 +89,9 @@ const appRoutes: Routes = [ {
     ListTextpostComponent,
     NotFoundComponent,
     UserFormComponent,
-    UserListComponent
+    UserListComponent,
+    AdComponent,
+    ShowViewComponent
   ],
   imports: [
     BrowserModule,
