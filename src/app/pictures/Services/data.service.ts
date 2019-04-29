@@ -13,7 +13,7 @@ export class DataService {
   constructor(private _http: Http) { }
 
   getUsers() {
-    return this._http.get('/api/v1/users')
+    return this._http.get('http://localhost:8000/api/v1/pictures')
       .map(result => result.json().data);
   }
 
@@ -22,7 +22,7 @@ export class DataService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this._http.post('/api/v1/user', body, options)
+    return this._http.post('http://localhost:8000/api/v1/picture', body, options)
       .map((res: Response) => res.json());
   }
 
@@ -30,7 +30,7 @@ export class DataService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this._http.delete('/api/v1/user/' + userId, options)
+    return this._http.delete('http://localhost:8000/api/v1/picture/' + userId, options)
       .map((res: Response) => res.json());
   }
 

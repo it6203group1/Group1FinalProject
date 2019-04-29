@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Account = require('./models/account')
 var adController = require('./controllers/adController');
 const Tpst = require('./models/post')
+const Picture = require('./models/Picture')
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -154,36 +155,36 @@ app.put('/textpage/:id', (req, res, next) => {
 });
 
 // Jose's API Endpoints
-app.get('/api/v1/users', function (req, res) {
-  User.find({}, function (err, users) {
+app.get('/api/v1/pictures', function (req, res) {
+  Picture.find({}, function (err, pictures) {
     if (err)
       sendError(err, res);
-    response.data = users;
+    response.data = pictures;
     res.json(response);
   });
 });
 
-app.post('/api/v1/user', function (req, res) {
-  let user = new User({
+app.post('/api/v1/picture', function (req, res) {
+  let user = new Picture({
     'name': req.body.name,
-    'email': req.body.email
+    'photoURL': req.body.photoURL
   });
 
   user.save((err) => {
     if (err)
       sendError(err, res);
-    response.data = 'User created';
+    response.data = 'Picture created';
     res.json(response);
   });
 });
 
-app.delete('/api/v1/user/:userid', function (req, res) {
+app.delete('/api/v1/picture/:userid', function (req, res) {
   let userId = req.params.userid;
 
-  User.findByIdAndRemove(userId, function (err, user) {
+  Picture.findByIdAndRemove(userId, function (err, user) {
     if (err)
       sendError(err, res);
-    response.data = 'User deleted'
+    response.data = 'Picture deleted'
     res.json(response);
   });
 });
