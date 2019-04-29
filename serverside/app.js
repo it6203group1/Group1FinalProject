@@ -156,6 +156,7 @@ app.put('/textpage/:id', (req, res, next) => {
 
 // Jose's API Endpoints
 app.get('/api/v1/pictures', function (req, res) {
+  let response = {};
   Picture.find({}, function (err, pictures) {
     if (err)
       sendError(err, res);
@@ -165,6 +166,7 @@ app.get('/api/v1/pictures', function (req, res) {
 });
 
 app.post('/api/v1/picture', function (req, res) {
+  let response = {};
   let user = new Picture({
     'name': req.body.name,
     'photoURL': req.body.photoURL
@@ -180,6 +182,7 @@ app.post('/api/v1/picture', function (req, res) {
 
 app.delete('/api/v1/picture/:userid', function (req, res) {
   let userId = req.params.userid;
+  let response = {};
 
   Picture.findByIdAndRemove(userId, function (err, user) {
     if (err)
